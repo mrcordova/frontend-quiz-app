@@ -14,7 +14,6 @@ choices.addEventListener(
     const val = e.target.closest("label")?.dataset.value;
 
     if (val != undefined) {
-      //   console.log(val);
       const img = subjectHeader.children[0];
       img.setAttribute("src", `assets/images/icon-${val}.svg`);
       img.setAttribute("alt", val);
