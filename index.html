@@ -59,26 +59,32 @@
       </div>
 
       <!-- Quiz menu start -->
-      <div class="choices-container">
-        <div>
+
+      <form id="subjects-form" class="rubik-medium">
+        <label for="html">
+          <input type="radio" name="subjects" id="html" />
           <img src="./assets/images/icon-html.svg" alt="html" />
           <p>HTML</p>
-        </div>
-        <div>
+        </label>
+        <label for="css">
+          <input type="radio" name="subjects" id="css" />
           <img src="./assets/images/icon-css.svg" alt="css" />
           <p>CSS</p>
-        </div>
-        <div>
+        </label>
+        <label for="js">
+          <input type="radio" name="subjects" id="js" />
           <img src="./assets/images/icon-js.svg" alt="JavaScript" />
           <p>JavaScript</p>
-        </div>
-        <div>
+        </label>
+        <label for="access">
+          <input type="radio" name="subjects" id="access" />
           <img
             src="./assets/images/icon-accessibility.svg"
             alt="Accessibility" />
           <p>Accessibility</p>
-        </div>
-      </div>
+        </label>
+      </form>
+
       <!-- Quiz menu end -->
 
       <template id="question-template">
