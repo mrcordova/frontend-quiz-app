@@ -55,6 +55,11 @@ header {
   padding-block: 1.625rem;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 .header-container {
   display: flex;
   flex-direction: column;
@@ -149,6 +154,7 @@ label {
     display: flex;
     align-items: center;
     border-radius: 0.75rem;
+    border: 1px solid transparent;
     /* Mobile */
     gap: 1rem;
 
@@ -157,21 +163,29 @@ label {
     }
 
     & img {
-      background-color: #fff1e9;
       border-radius: 0.375rem;
       /* Mobile */
       margin-block: 0.75rem;
       margin-inline: 0.75rem;
+      width: 2.5rem;
+      padding: 0.356875rem;
     }
 
-    & img:first-child {
+    &:first-child > img {
+      background-color: #fff1e9;
+    }
+    &:nth-child(2) > img {
       background-color: #e0fdef;
     }
-    & img:nth-child(2) {
+    &:nth-child(3) > img {
       background-color: #ebf0ff;
     }
-    & img:nth-child(3) {
+    &:nth-child(4) > img {
       background-color: #f6e7ff;
+    }
+
+    &:is(:active, :hover) {
+      border: 1px solid var(--purple);
     }
   }
 }
