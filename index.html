@@ -1,48 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Frontend quiz app</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" type="module"></script>
 
-  <!-- Quiz menu start -->
+    <title>Frontend Mentor | Frontend quiz app</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img src="" alt="" />
+        <p></p>
+      </div>
 
-  Welcome to the Frontend Quiz!
-  Pick a subject to get started.
+      <div></div>
+    </header>
+    <main>
+      <div>
+        <h1>Welcome to the Frontend Quiz!</h1>
+        <h2>Pick a subject to get started.</h2>
+      </div>
 
-  HTML
-  CSS
-  JavaScript
-  Accessibility
+      <!-- Quiz menu start -->
+      <div>
+        <div>
+          <img src="./assets/images/icon-html.svg" alt="html" />
+          <p>HTML</p>
+        </div>
+        <div>
+          <img src="./assets/images/icon-css.svg" alt="css" />
+          <p>CSS</p>
+        </div>
+        <div>
+          <img src="./assets/images/icon-js.svg" alt="JavaScript" />
+          <p>JavaScript</p>
+        </div>
+        <div>
+          <img
+            src="./assets/images/icon-accessibility.svg"
+            alt="Accessibility" />
+          <p>Accessibility</p>
+        </div>
+      </div>
+      <!-- Quiz menu end -->
 
-  <!-- Quiz menu end -->
+      <template id="question-template">
+        <div>
+          <!-- Quiz question start -->
+          <h2>
+            Question
+            <!-- number -->
+            <span id="question-num">6</span>
+            of 10
+          </h2>
+          <meter value="6" max="10"></meter>
 
-  <!-- Quiz question start -->
+          <form id="choice-form">
+            <label for="a">
+              <input type="radio" name="choices" id="a" />
+              <p>4.5:1</p>
+            </label>
+            <label for="b">
+              <input type="radio" name="choices" id="b" />
+              <p>3:1</p>
+            </label>
+            <label for="c">
+              <input type="radio" name="choices" id="c" />
+              <p>2.5:1</p>
+            </label>
+            <label for="d">
+              <input type="radio" name="choices" id="d" />
+              <p>5:1</p>
+            </label>
+            <button>Submit Answer</button>
+            <!-- A B C D Submit answer -->
+          </form>
+        </div>
 
-  Question <!-- number --> of 10
-
-  A
-  B
-  C
-  D
-
-  Submit answer
-
-  <!-- Quiz question end -->
-
-  <!-- Quiz completed start -->
-
-  Quiz completed
-  You scored...
-
-  <!-- score --> out of 10
-
-  <!-- Quiz completed end -->
-
-</body>
+        <!-- Quiz question end -->
+      </template>
+      <template id="quiz-complete">
+        <div>
+          <h1>
+            <!-- Quiz completed start -->
+            Quiz completed
+            <span>You scored...</span>
+          </h1>
+          <div>
+            <div>
+              <img src="" alt="" />
+              <p></p>
+            </div>
+            <span>8</span>
+            <!-- score -->
+            <h2>out of 10</h2>
+          </div>
+          <button>Play Again</button>
+          <!-- Quiz completed end -->
+        </div>
+      </template>
+    </main>
+  </body>
 </html>
