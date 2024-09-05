@@ -91,8 +91,16 @@ function checkAnswer(e) {
   }
 }
 function nextPage(e) {
+  // console.log(e.target);
   e.preventDefault();
-  console.log(e.target);
+  const clone = questionTemplate.content.cloneNode(true);
+  const choiceForm = clone.getElementById("choice-form");
+  choiceForm.addEventListener("click", checkAnswer, true);
+  const questionNum = clone.getElementById("question-num");
+  // console.log(questionNum);
+  questionNum.textContent = `${++questionCount}`;
+
+  contentArea.replaceChildren(clone);
 }
 
 choices.addEventListener(
@@ -115,6 +123,10 @@ choices.addEventListener(
       const clone = questionTemplate.content.cloneNode(true);
       const choiceForm = clone.getElementById("choice-form");
       choiceForm.addEventListener("click", checkAnswer, true);
+      const questionMax = clone.getElementById("question-max");
+      questionMax.textContent = `${
+        quizzesObj[subjectHeader.dataset.subject].questions.length
+      }`;
       contentArea.replaceChildren(clone);
     }
   },
