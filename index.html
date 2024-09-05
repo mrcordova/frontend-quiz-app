@@ -17,7 +17,7 @@
   </head>
   <body class="rubik-regular">
     <header>
-      <div class="subject-heading-container">
+      <div data-subject="" class="subject-heading-container">
         <img class="hide" src="" alt="" />
         <p></p>
       </div>
@@ -106,27 +106,32 @@
           <progress role="progressbar" value="5" max="10"></progress>
 
           <form id="choice-form" class="rubik-medium">
-            <label for="a">
+            <label data-choice="4.5:1" for="a">
               <input type="radio" name="choices" id="a" />
               <span>A</span>
-              <span data-choice="4.5:1">4.5:1</span>
+              <span >4.5:1</span>
             </label>
-            <label for="b">
+            <label data-choice="3:1" for="b">
               <input type="radio" name="choices" id="b" />
               <span>B</span>
-              <span data-choice="3:1">3:1</span>
+              <span >3:1</span>
             </label>
-            <label for="c">
+            <label data-choice="2.5:1" for="c">
               <input type="radio" name="choices" id="c" />
               <span>C</span>
-              <span data-choice="2.5:1">2.5:1</span>
+              <span >2.5:1</span>
             </label>
-            <label for="d">
+            <label data-choice="5:1" for="d">
               <input type="radio" name="choices" id="d" />
               <span>D</span>
-              <span data-choice="5:1">5:1</span>
+              <span >5:1</span>
             </label>
             <button id="submit-btn" class="rubik-medium">Submit Answer</button>
+
+            <span id="no-answer" class="rubik-regular hide">
+              <img class="no-answer-img" src="./assets/images/icon-incorrect.svg" alt="x">
+              Please select an answer
+            </span>
             <!-- A B C D Submit answer -->
           </form>
         </div>

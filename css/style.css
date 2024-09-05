@@ -227,7 +227,7 @@ label {
 
 #choice-form {
   gap: 0.5625rem;
-  & span:first-of-type {
+  & > label > span:first-of-type {
     background-color: var(--pure-white);
     color: var(--grey-navy);
     border-radius: 0.375rem;
@@ -243,6 +243,14 @@ label {
     background-color: var(--purple);
     color: var(--pure-white);
   }
+  .correct > input:is(:checked) + span {
+    background-color: var(--green);
+    color: var(--pure-white);
+  }
+  .incorrect > input:is(:checked) + span {
+    background-color: var(--red);
+    color: var(--pure-white);
+  }
 
   & label {
     border: 0.1875rem solid transparent;
@@ -250,10 +258,48 @@ label {
     &:is(:active, :hover) {
       border: 0.1875rem solid var(--purple);
     }
+    .correct-img.correct-img {
+      margin-inline-start: auto;
+      background-color: transparent;
+    }
   }
 
   & label:has(input:checked) {
     border: 0.1875rem solid var(--purple);
+  }
+  .correct:has(input:checked) {
+    border: 0.1875rem solid var(--green);
+
+    & > img {
+      margin-inline-start: auto;
+      background-color: transparent;
+    }
+  }
+
+  .incorrect:has(input:checked) {
+    border: 0.1875rem solid var(--red);
+    & > img {
+      margin-inline-start: auto;
+      background-color: transparent;
+    }
+  }
+}
+
+#no-answer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Mobile */
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  line-height: 1;
+  & > img {
+    /* Mobile */
+    width: 2rem;
+  }
+
+  &.hide {
+    display: none;
   }
 }
 
