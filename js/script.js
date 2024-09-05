@@ -13,6 +13,7 @@ for (const quiz of quizzes) {
 }
 console.log(quizzesObj);
 let questionCount = 0;
+let currentScore = 0;
 let userChoiceLabel;
 const subjects = {
   js: "JavaScript",
@@ -61,6 +62,7 @@ function checkAnswer(e) {
       e.target.parentElement.removeEventListener("click", checkAnswer, true);
 
       e.target.addEventListener("mouseup", nextPage);
+      currentScore++;
     } else if (answer !== userChoice) {
       userChoiceLabel.insertAdjacentHTML(
         "beforeend",
@@ -88,14 +90,13 @@ function checkAnswer(e) {
         e.target.nextElementSibling.classList.toggle("hide", true);
       }
     }
+    questionCount++;
   }
 }
 function nextPage(e) {
-  // console.log(e.target);
   e.preventDefault();
   const subject = quizzesObj[subjectHeader.dataset.subject];
 
-  // console.log(subjectHeader.dataset.subject);
   const clone = questionTemplate.content.cloneNode(true);
   const choiceForm = clone.getElementById("choice-form");
   choiceForm.addEventListener("click", checkAnswer, true);
@@ -111,11 +112,10 @@ function nextPage(e) {
   progress.setAttribute("value", questionCount);
 
   const questionNum = clone.getElementById("question-num");
-  questionNum.textContent = `${++questionCount}`;
+  questionNum.textContent = `${questionCount + 1}`;
 
   const options = clone.querySelectorAll("label[data-choice]");
 
-  // console.log(subject.questions);
   for (
     let index = 0;
     index < subject.questions[questionCount].options.length;
@@ -126,6 +126,7 @@ function nextPage(e) {
     options[index].children[2].textContent = options[index].dataset.choice;
   }
 
+  // console.log(currentScore);
   contentArea.replaceChildren(clone);
 }
 
