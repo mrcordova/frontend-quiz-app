@@ -169,6 +169,19 @@ function playAgain(e) {
   questionCount = 0;
 }
 
+window.addEventListener("load", () => {
+  let idx = 0;
+  for (const quizObj of Object.values(quizzesObj)) {
+    // console.log(quizObj);
+    choices.children[idx].querySelector(
+      "span"
+    ).textContent = `${quizObj.title}`;
+    const img = choices.children[idx].querySelector("img");
+    img.setAttribute("src", `${quizObj.icon}`);
+    img.setAttribute("alit", quizObj.title);
+    idx++;
+  }
+});
 toggle.addEventListener("click", (e) => {
   e.preventDefault();
   // console.log(e.currentTarget.querySelector("input"));
