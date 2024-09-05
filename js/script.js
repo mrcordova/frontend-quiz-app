@@ -99,9 +99,7 @@ function nextPage(e) {
   const clone = questionTemplate.content.cloneNode(true);
   const choiceForm = clone.getElementById("choice-form");
   choiceForm.addEventListener("click", checkAnswer, true);
-
-  const questionNum = clone.getElementById("question-num");
-  questionNum.textContent = `${++questionCount}`;
+  userChoiceLabel = undefined;
 
   const question = clone.getElementById("question");
   question.textContent = subject.questions[questionCount].question;
@@ -111,6 +109,9 @@ function nextPage(e) {
 
   const progress = clone.getElementById("progressbar");
   progress.setAttribute("value", questionCount);
+
+  const questionNum = clone.getElementById("question-num");
+  questionNum.textContent = `${++questionCount}`;
 
   const options = clone.querySelectorAll("label[data-choice]");
 
