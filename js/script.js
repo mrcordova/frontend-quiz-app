@@ -1,6 +1,7 @@
 const choices = document.getElementById("subjects-form");
 const subjectHeader = document.querySelector(".subject-heading-container");
 const questionTemplate = document.getElementById("question-template");
+const quizCompleteTemplate = document.getElementById("quiz-complete");
 const contentArea = document.getElementById("content-area");
 const controller = new AbortController();
 
@@ -95,38 +96,50 @@ function checkAnswer(e) {
 }
 function nextPage(e) {
   e.preventDefault();
-  const subject = quizzesObj[subjectHeader.dataset.subject];
 
-  const clone = questionTemplate.content.cloneNode(true);
-  const choiceForm = clone.getElementById("choice-form");
-  choiceForm.addEventListener("click", checkAnswer, true);
-  userChoiceLabel = undefined;
+  if (questionCount !== 10) {
+    const subject = quizzesObj[subjectHeader.dataset.subject];
 
-  const question = clone.getElementById("question");
-  question.textContent = subject.questions[questionCount].question;
+    const clone = questionTemplate.content.cloneNode(true);
+    const choiceForm = clone.getElementById("choice-form");
+    choiceForm.addEventListener("click", checkAnswer, true);
+    userChoiceLabel = undefined;
 
-  const questionMax = clone.getElementById("question-max");
-  questionMax.textContent = `${subject.questions.length}`;
+    const question = clone.getElementById("question");
+    question.textContent = subject.questions[questionCount].question;
 
-  const progress = clone.getElementById("progressbar");
-  progress.setAttribute("value", questionCount);
+    const questionMax = clone.getElementById("question-max");
+    questionMax.textContent = `${subject.questions.length}`;
 
-  const questionNum = clone.getElementById("question-num");
-  questionNum.textContent = `${questionCount + 1}`;
+    const progress = clone.getElementById("progressbar");
+    progress.setAttribute("value", questionCount);
 
-  const options = clone.querySelectorAll("label[data-choice]");
+    const questionNum = clone.getElementById("question-num");
+    questionNum.textContent = `${questionCount + 1}`;
 
-  for (
-    let index = 0;
-    index < subject.questions[questionCount].options.length;
-    index++
-  ) {
-    options[index].dataset.choice =
-      subject.questions[questionCount].options[index];
-    options[index].children[2].textContent = options[index].dataset.choice;
+    const options = clone.querySelectorAll("label[data-choice]");
+
+    for (
+      let index = 0;
+      index < subject.questions[questionCount].options.length;
+      index++
+    ) {
+      options[index].dataset.choice =
+        subject.questions[questionCount].options[index];
+      options[index].children[2].textContent = options[index].dataset.choice;
+    }
+
+    contentArea.replaceChildren(clone);
+  } else {
+    quizComplete(e);
   }
+}
 
-  // console.log(currentScore);
+function quizComplete(e) {
+  const clone = quizCompleteTemplate.content.cloneNode(true);
+
+  const finalScoreContainer = clone.getElementById("final-score-container");
+  finalScoreContainer.insertAdjacentElement("afterbegin", subjectHeader.cloneNode(true));
   contentArea.replaceChildren(clone);
 }
 

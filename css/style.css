@@ -70,6 +70,31 @@ main {
   /* Mobile */
   padding-block-start: 2rem;
 }
+#final-score-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--navy);
+  align-items: center;
+  border-radius: 0.75rem;
+  /* Mobile */
+  padding-block: 2rem;
+  gap: 1rem;
+  margin-block-end: 0.75rem;
+
+  & > span {
+    color: var(--pure-white);
+    /* Mobile */
+    font-size: 5.5rem;
+    line-height: 1;
+  }
+
+  & > h2 {
+    color: var(--light-bluish);
+    /* Mobile */
+    font-size: 1.125rem;
+    line-height: 1;
+  }
+}
 
 .header-container {
   display: flex;
@@ -344,7 +369,9 @@ progress {
     line-height: 1.2;
   }
 }
-#submit-btn {
+#submit-btn,
+#play-again-btn {
+  color: var(--pure-white);
   background-color: var(--purple);
   border-radius: 0.75rem;
   text-align: center;
@@ -358,4 +385,9 @@ progress {
   &:hover {
     cursor: pointer;
   }
+}
+
+#quiz-complete-container {
+  display: flex;
+  flex-direction: column;
 }

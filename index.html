@@ -139,22 +139,21 @@
         <!-- Quiz question end -->
       </template>
       <template id="quiz-complete">
-        <div>
-          <h1>
-            <!-- Quiz completed start -->
-            Quiz completed
-            <span>You scored...</span>
-          </h1>
-          <div>
-            <div>
-              <img src="" alt="" />
-              <p></p>
-            </div>
-            <span>8</span>
-            <!-- score -->
-            <h2>out of 10</h2>
+        <div id="quiz-complete-container">
+          <div class="header-container">
+            <h1 class="rubik-regular">
+              <!-- Quiz completed start -->
+              Quiz completed
+              <span class="rubik-medium">You scored...</span>
+            </h1>
           </div>
-          <button>Play Again</button>
+          <div id="final-score-container">
+            
+            <span id="final-score" class="rubik-medium">8</span>
+            <!-- score -->
+            <h2 id="max-final-score">out of 10</h2>
+          </div>
+          <button id="play-again-btn" class="rubik-medium">Play Again</button>
           <!-- Quiz completed end -->
         </div>
       </template>
