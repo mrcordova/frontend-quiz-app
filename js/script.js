@@ -3,8 +3,9 @@ const subjectHeader = document.querySelector(".subject-heading-container");
 const questionTemplate = document.getElementById("question-template");
 const quizCompleteTemplate = document.getElementById("quiz-complete");
 const contentArea = document.getElementById("content-area");
-const controller = new AbortController();
+const toggle = document.querySelector("label[for='toggle']");
 
+// console.log(toggle);
 const dataResponse = await fetch("data.json");
 const data = await dataResponse.json();
 const quizzes = data["quizzes"];
@@ -113,7 +114,7 @@ function nextPage(e) {
     questionMax.textContent = `${subject.questions.length}`;
 
     const progress = clone.getElementById("progressbar");
-    progress.setAttribute("value", questionCount);
+    progress.setAttribute("value", questionCount + 1);
 
     const questionNum = clone.getElementById("question-num");
     questionNum.textContent = `${questionCount + 1}`;
@@ -167,18 +168,22 @@ function playAgain(e) {
   currentScore = 0;
   questionCount = 0;
 }
-
+toggle.addEventListener("click", (e) => {
+  document.documentElement.classList.toggle("light-mode");
+});
 choices.addEventListener(
   "click",
   (e) => {
     e.preventDefault();
-    const val = e.target.closest("label")?.dataset.value;
+    const label = e.target.closest("label");
 
+    const val = label.dataset?.value;
     if (val != undefined) {
       const img = subjectHeader.children[0];
-      img.setAttribute("src", `assets/images/icon-${val}.svg`);
-      img.setAttribute("alt", val);
-      img.classList.toggle("hide", false);
+      subjectHeader.replaceChild(label.children[1].cloneNode(true), img);
+      // img.setAttribute("src", `assets/images/icon-${val}.svg`);
+      // img.setAttribute("alt", val);
+      // img.classList.toggle("hide", false);
 
       const headerText = subjectHeader.children[1];
       headerText.textContent = subjects[val];

@@ -9,6 +9,28 @@
   --pure-white: hsl(0, 0%, 100%);
   --green: hsl(151, 70%, 50%);
   --red: hsl(0, 82%, 63%);
+
+  --body-bg: var(--dark-navy);
+  --option-bg: var(--navy);
+  --option-text: var(--pure-white);
+  --sub-heading: var(--light-bluish);
+  --icon: var(--pure-white);
+
+  --choice-bg: var(--pure-white);
+}
+
+:root.light-mode {
+  /* --pure-white: hsl(0, 0%, 100%);
+  --light-grey: hsl(220, 38%, 97%);
+  --dark-navy: hsl(216, 25%, 25%);
+  --grey-navy: hsl(219, 13%, 44%); */
+
+  --body-bg: var(--light-grey);
+  --option-bg: var(--pure-white);
+  --option-text: var(--dark-navy);
+  --sub-heading: var(--grey-navy);
+  --icon: var(--grey-navy);
+  --choice-bg: var(--light-grey);
 }
 
 .rubik-regular {
@@ -34,17 +56,21 @@ html {
   height: 100%;
   margin: 0 auto;
   max-width: 90rem;
-  /* background-color: var(--navy); */
 }
 body {
   background: url(../assets/images/pattern-background-mobile-dark.svg) no-repeat
-    var(--dark-navy);
+    var(--body-bg);
   background-size: cover;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   /* Mobile */
   padding-inline: 1.5rem;
+}
+
+.light-mode > body {
+  background: url(../assets/images/pattern-background-mobile-light.svg)
+    no-repeat var(--body-bg);
 }
 
 header {
@@ -104,14 +130,16 @@ main {
   padding-block-end: 2.5rem;
 
   & h1 {
-    color: var(--pure-white);
+    /* color: var(--pure-white); */
+    color: var(--option-text);
     /* Mobile */
     font-size: 2.5rem;
     line-height: 1;
   }
 
   & h2 {
-    color: var(--light-bluish);
+    /* color: var(--light-bluish); */
+    color: var(--sub-heading);
     /* Mobile */
     font-size: 0.875rem;
     line-height: 1.5;
@@ -120,7 +148,8 @@ main {
 .subject-heading-container {
   display: flex;
   align-items: center;
-  color: var(--pure-white);
+  /* color: var(--pure-white); */
+  color: var(--option-text);
   /* Mobile */
   font-size: 1.125rem;
   line-height: 1;
@@ -129,7 +158,7 @@ main {
 
   & img {
     border-radius: 0.375rem;
-    background-color: var(--pure-white);
+    /* background-color: var(--pure-white); */
     /* Mobile */
     width: 2.5rem;
     padding: 0.356875rem;
@@ -154,7 +183,8 @@ label {
     width: 1rem;
     height: 1rem;
     & > path {
-      fill: var(--pure-white);
+      /* fill: var(--pure-white); */
+      fill: var(--icon);
     }
   }
 }
@@ -203,14 +233,16 @@ label {
 #choice-form {
   display: flex;
   flex-direction: column;
-  color: var(--pure-white);
+  /* color: var(--pure-white); */
+  color: var(--option-text);
   /* Mobile */
   font-size: 1.125rem;
   gap: 0.75rem;
   line-height: 1;
 
   & label {
-    background-color: var(--navy);
+    /* background-color: var(--navy); */
+    background-color: var(--option-bg);
     display: flex;
     align-items: center;
     border-radius: 0.75rem;
@@ -231,29 +263,30 @@ label {
       padding: 0.356875rem;
     }
 
-    &:first-child > img {
-      background-color: #fff1e9;
-    }
-    &:nth-child(2) > img {
-      background-color: #e0fdef;
-    }
-    &:nth-child(3) > img {
-      background-color: #ebf0ff;
-    }
-    &:nth-child(4) > img {
-      background-color: #f6e7ff;
-    }
-
     &:is(:active, :hover) {
       border: 1px solid var(--purple);
     }
   }
 }
 
+#html-img {
+  background-color: #fff1e9;
+}
+#css-img {
+  background-color: #e0fdef;
+}
+#js-img {
+  background-color: #ebf0ff;
+}
+#access-img {
+  background-color: #f6e7ff;
+}
 #choice-form {
   gap: 0.5625rem;
   & > label > span:first-of-type {
-    background-color: var(--pure-white);
+    /* background-color: var(--pure-white); */
+    background-color: var(--choice-bg);
+    color: var(--grey-navy);
     color: var(--grey-navy);
     border-radius: 0.375rem;
     /* Mobile */
@@ -337,7 +370,8 @@ progress {
   margin-block-end: 2.5rem;
 }
 ::-webkit-progress-bar {
-  background-color: var(--navy);
+  /* background-color: var(--navy); */
+  background-color: var(--option-bg);
   /* Mobile */
   border-radius: 62.4375rem;
   padding: 0.25rem;
@@ -356,14 +390,16 @@ progress {
   gap: 0.75rem;
   padding-block-end: 1.5rem;
   & h2 {
-    color: var(--light-bluish);
+    /* color: var(--light-bluish); */
+    color: var(--sub-heading);
     /* Mobile */
     font-size: 0.875rem;
     line-height: 1.5;
   }
 
   & p {
-    color: var(--pure-white);
+    /* color: var(--pure-white); */
+    color: var(--option-text);
     /* Mobile */
     font-size: 1.25rem;
     line-height: 1.2;
