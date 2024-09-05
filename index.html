@@ -65,24 +65,24 @@
           <label data-value="html" for="html">
             <input type="radio" name="subjects" id="html" />
             <img src="./assets/images/icon-html.svg" alt="html" />
-            <p>HTML</p>
+            <span>HTML<span>
           </label>
           <label data-value="css" for="css">
             <input type="radio" name="subjects" id="css" />
             <img src="./assets/images/icon-css.svg" alt="css" />
-            <p>CSS</p>
+            <span>CSS<span>
           </label>
           <label data-value="js" for="js">
             <input type="radio" name="subjects" id="js" />
             <img src="./assets/images/icon-js.svg" alt="JavaScript" />
-            <p>JavaScript</p>
+            <span>JavaScript<span>
           </label>
           <label data-value="accessibility" for="accessibility">
             <input type="radio" name="subjects" id="accessibility" />
             <img
               src="./assets/images/icon-accessibility.svg"
               alt="Accessibility" />
-            <p>Accessibility</p>
+            <span>Accessibility<span>
           </label>
         </form>
       </div>
@@ -103,26 +103,30 @@
               Level AA requirement for normal text?
             </p>
           </div>
-          <progress class="progress-meter" value="6" max="10"></progress>
+          <progress role="progressbar" value="5" max="10"></progress>
 
-          <form id="choice-form">
+          <form id="choice-form" class="rubik-medium">
             <label for="a">
               <input type="radio" name="choices" id="a" />
-              <p>4.5:1</p>
+              <span>A</span>
+              <span data-choice="4.5:1">4.5:1</span>
             </label>
             <label for="b">
               <input type="radio" name="choices" id="b" />
-              <p>3:1</p>
+              <span>B</span>
+              <span data-choice="3:1">3:1</span>
             </label>
             <label for="c">
               <input type="radio" name="choices" id="c" />
-              <p>2.5:1</p>
+              <span>C</span>
+              <span data-choice="2.5:1">2.5:1</span>
             </label>
             <label for="d">
               <input type="radio" name="choices" id="d" />
-              <p>5:1</p>
+              <span>D</span>
+              <span data-choice="5:1">5:1</span>
             </label>
-            <button>Submit Answer</button>
+            <button id="submit-btn" class="rubik-medium">Submit Answer</button>
             <!-- A B C D Submit answer -->
           </form>
         </div>
