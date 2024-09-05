@@ -12,7 +12,7 @@ for (const quiz of quizzes) {
   quizzesObj[quiz["title"]] = quiz;
 }
 console.log(quizzesObj);
-let questionCount = 4;
+let questionCount = 0;
 let userChoiceLabel;
 const subjects = {
   js: "Javascript",
@@ -93,12 +93,32 @@ function checkAnswer(e) {
 function nextPage(e) {
   // console.log(e.target);
   e.preventDefault();
+  const subject = quizzesObj[subjectHeader.dataset.subject];
   const clone = questionTemplate.content.cloneNode(true);
   const choiceForm = clone.getElementById("choice-form");
   choiceForm.addEventListener("click", checkAnswer, true);
+
   const questionNum = clone.getElementById("question-num");
-  // console.log(questionNum);
   questionNum.textContent = `${++questionCount}`;
+
+  const question = clone.getElementById("question");
+  question.textContent = subject.questions[questionCount].question;
+
+  const questionMax = clone.getElementById("question-max");
+  questionMax.textContent = `${subject.questions.length}`;
+
+  const options = clone.querySelectorAll("label[data-choice]");
+
+  console.log(subject.questions);
+  for (
+    let index = 0;
+    index < subject.questions[questionCount].options.length;
+    index++
+  ) {
+    options[index].dataset.choice =
+      subject.questions[questionCount].options[index];
+    options[index].children[2].textContent = options[index].dataset.choice;
+  }
 
   contentArea.replaceChildren(clone);
 }
@@ -119,15 +139,24 @@ choices.addEventListener(
       headerText.textContent = subjects[val];
       subjectHeader.dataset.subject = subjects[val];
 
+      nextPage(e);
       // Question Template
-      const clone = questionTemplate.content.cloneNode(true);
-      const choiceForm = clone.getElementById("choice-form");
-      choiceForm.addEventListener("click", checkAnswer, true);
-      const questionMax = clone.getElementById("question-max");
-      questionMax.textContent = `${
-        quizzesObj[subjectHeader.dataset.subject].questions.length
-      }`;
-      contentArea.replaceChildren(clone);
+      // const clone = questionTemplate.content.cloneNode(true);
+      // const choiceForm = clone.getElementById("choice-form");
+      // choiceForm.addEventListener("click", checkAnswer, true);
+
+      // const questionNum = clone.getElementById("question-num");
+      // questionNum.textContent = `${questionCount}`;
+      // const question = clone.getElementById("question");
+      // question.textContent =
+      //   quizzesObj[subjectHeader.dataset.subject].questions[
+      //     questionCount
+      //   ].question;
+      // const questionMax = clone.getElementById("question-max");
+      // questionMax.textContent = `${
+      //   quizzesObj[subjectHeader.dataset.subject].questions.length
+      // }`;
+      // contentArea.replaceChildren(clone);
     }
   },
   true
