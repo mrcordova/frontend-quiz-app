@@ -168,9 +168,16 @@ function playAgain(e) {
   currentScore = 0;
   questionCount = 0;
 }
+
 toggle.addEventListener("click", (e) => {
+  e.preventDefault();
+  // console.log(e.currentTarget.querySelector("input"));
+  const input = e.currentTarget.querySelector("input");
+  input.checked = !input.checked;
+  // console.log(document.documentElement.classList.contains("light-mode"));
   document.documentElement.classList.toggle("light-mode");
 });
+
 choices.addEventListener(
   "click",
   (e) => {

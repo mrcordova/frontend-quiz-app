@@ -15,7 +15,6 @@
   --option-text: var(--pure-white);
   --sub-heading: var(--light-bluish);
   --icon: var(--pure-white);
-
   --choice-bg: var(--pure-white);
 }
 
@@ -99,7 +98,8 @@ main {
 #final-score-container {
   display: flex;
   flex-direction: column;
-  background-color: var(--navy);
+  /* background-color: var(--navy); */
+  background-color: var(--option-bg);
   align-items: center;
   border-radius: 0.75rem;
   /* Mobile */
@@ -108,14 +108,16 @@ main {
   margin-block-end: 0.75rem;
 
   & > span {
-    color: var(--pure-white);
+    /* color: var(--pure-white); */
+    color: var(--option-text);
     /* Mobile */
     font-size: 5.5rem;
     line-height: 1;
   }
 
   & > h2 {
-    color: var(--light-bluish);
+    /* color: var(--light-bluish); */
+    color: var(--sub-heading);
     /* Mobile */
     font-size: 1.125rem;
     line-height: 1;
