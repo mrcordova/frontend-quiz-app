@@ -50,53 +50,60 @@
       <!-- </div> -->
     </header>
     <main>
-      <div class="header-container">
-        <h1 class="rubik-regular">
-          Welcome to the
-          <span class="rubik-medium">Frontend Quiz!</span>
-        </h1>
-        <h2 class="rubik-regular-italic">Pick a subject to get started.</h2>
+      <div id="content-area">
+        <div class="header-container">
+          <h1 class="rubik-regular">
+            Welcome to the
+            <span class="rubik-medium">Frontend Quiz!</span>
+          </h1>
+          <h2 class="rubik-regular-italic">Pick a subject to get started.</h2>
+        </div>
+
+        <!-- Quiz menu start -->
+
+        <form id="subjects-form" class="rubik-medium">
+          <label data-value="html" for="html">
+            <input type="radio" name="subjects" id="html" />
+            <img src="./assets/images/icon-html.svg" alt="html" />
+            <p>HTML</p>
+          </label>
+          <label data-value="css" for="css">
+            <input type="radio" name="subjects" id="css" />
+            <img src="./assets/images/icon-css.svg" alt="css" />
+            <p>CSS</p>
+          </label>
+          <label data-value="js" for="js">
+            <input type="radio" name="subjects" id="js" />
+            <img src="./assets/images/icon-js.svg" alt="JavaScript" />
+            <p>JavaScript</p>
+          </label>
+          <label data-value="accessibility" for="accessibility">
+            <input type="radio" name="subjects" id="accessibility" />
+            <img
+              src="./assets/images/icon-accessibility.svg"
+              alt="Accessibility" />
+            <p>Accessibility</p>
+          </label>
+        </form>
       </div>
-
-      <!-- Quiz menu start -->
-
-      <form id="subjects-form" class="rubik-medium">
-        <label data-value="html" for="html">
-          <input type="radio" name="subjects" id="html" />
-          <img src="./assets/images/icon-html.svg" alt="html" />
-          <p>HTML</p>
-        </label>
-        <label data-value="css" for="css">
-          <input type="radio" name="subjects" id="css" />
-          <img src="./assets/images/icon-css.svg" alt="css" />
-          <p>CSS</p>
-        </label>
-        <label data-value="js" for="js">
-          <input type="radio" name="subjects" id="js" />
-          <img src="./assets/images/icon-js.svg" alt="JavaScript" />
-          <p>JavaScript</p>
-        </label>
-        <label data-value="accessibility" for="accessibility">
-          <input type="radio" name="subjects" id="accessibility" />
-          <img
-            src="./assets/images/icon-accessibility.svg"
-            alt="Accessibility" />
-          <p>Accessibility</p>
-        </label>
-      </form>
-
       <!-- Quiz menu end -->
 
       <template id="question-template">
         <div>
           <!-- Quiz question start -->
-          <h2>
-            Question
-            <!-- number -->
-            <span id="question-num">6</span>
-            of 10
-          </h2>
-          <meter value="6" max="10"></meter>
+          <div class="question-header">
+            <h2 class="rubik-regular-italic">
+              Question
+              <!-- number -->
+              <span id="question-num">6</span>
+              of 10
+            </h2>
+            <p class="rubik-medium">
+              Which of these color contrast ratios defines the minimum WCAG 2.1
+              Level AA requirement for normal text?
+            </p>
+          </div>
+          <progress class="progress-meter" value="6" max="10"></progress>
 
           <form id="choice-form">
             <label for="a">
