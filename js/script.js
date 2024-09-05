@@ -2,6 +2,7 @@ const choices = document.getElementById("subjects-form");
 const subjectHeader = document.querySelector(".subject-heading-container");
 const questionTemplate = document.getElementById("question-template");
 const contentArea = document.getElementById("content-area");
+const controller = new AbortController();
 
 const dataResponse = await fetch("data.json");
 const data = await dataResponse.json();
@@ -49,6 +50,17 @@ function checkAnswer(e) {
         `<img src='/assets/images/icon-correct.svg' alt='checkmark'/>`
       );
       userChoiceLabel.classList.add("correct");
+
+      for (const formEle of userChoiceLabel.parentElement.children) {
+        formEle.disabled = true;
+        formEle.style = "pointer-events: none;";
+      }
+      e.target.textContent = "Next Question";
+      e.target.disabled = false;
+      e.target.style = "";
+      e.target.parentElement.removeEventListener("click", checkAnswer, true);
+
+      e.target.addEventListener("mouseup", nextPage);
     } else if (answer !== userChoice) {
       userChoiceLabel.insertAdjacentHTML(
         "beforeend",
@@ -68,12 +80,19 @@ function checkAnswer(e) {
       e.target.disabled = false;
       e.target.style = "";
 
+      e.target.parentElement.removeEventListener("click", checkAnswer, true);
+
+      e.target.addEventListener("mouseup", nextPage);
       // Might not neeeded since we should move to the next page
       if (!e.target.nextElementSibling.classList.contains("hide")) {
         e.target.nextElementSibling.classList.toggle("hide", true);
       }
     }
   }
+}
+function nextPage(e) {
+  e.preventDefault();
+  console.log(e.target);
 }
 
 choices.addEventListener(
