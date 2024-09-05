@@ -16,6 +16,7 @@ console.log(quizzesObj);
 let questionCount = 0;
 let currentScore = 0;
 let userChoiceLabel;
+let firstPage;
 const subjects = {
   js: "JavaScript",
   html: "HTML",
@@ -139,8 +140,32 @@ function quizComplete(e) {
   const clone = quizCompleteTemplate.content.cloneNode(true);
 
   const finalScoreContainer = clone.getElementById("final-score-container");
-  finalScoreContainer.insertAdjacentElement("afterbegin", subjectHeader.cloneNode(true));
+  finalScoreContainer.insertAdjacentElement(
+    "afterbegin",
+    subjectHeader.cloneNode(true)
+  );
+
+  const finalScore = clone.getElementById("final-score");
+  finalScore.textContent = `${currentScore}`;
+
+  const maxFinalScore = clone.getElementById("max-final-score");
+  maxFinalScore.textContent = `out of ${
+    quizzesObj[subjectHeader.dataset.subject].questions.length
+  }`;
+
+  const playAgainBtn = clone.getElementById("play-again-btn");
+  playAgainBtn.addEventListener("click", playAgain);
   contentArea.replaceChildren(clone);
+}
+
+function playAgain(e) {
+  console.log("play again");
+  contentArea.replaceChildren(...firstPage);
+
+  subjectHeader.children[0].classList.toggle("hide", true);
+  subjectHeader.children[1].textContent = "";
+  currentScore = 0;
+  questionCount = 0;
 }
 
 choices.addEventListener(
@@ -159,8 +184,11 @@ choices.addEventListener(
       headerText.textContent = subjects[val];
       subjectHeader.dataset.subject = subjects[val];
 
+      firstPage = [...contentArea.children];
       // console.log(subjectHeader.dataset.subject);
       nextPage(e);
+
+      // console.log(firstPage);
       // Question Template
       // const clone = questionTemplate.content.cloneNode(true);
       // const choiceForm = clone.getElementById("choice-form");
