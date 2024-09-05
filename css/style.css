@@ -422,6 +422,7 @@ progress {
 
   &:hover {
     cursor: pointer;
+    background-color: color-mix(in hsl, var(--purple) 50%, var(--pure-white));
   }
 }
 

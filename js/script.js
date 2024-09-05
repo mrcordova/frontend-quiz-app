@@ -13,7 +13,7 @@ const quizzesObj = {};
 for (const quiz of quizzes) {
   quizzesObj[quiz["title"]] = quiz;
 }
-console.log(quizzesObj);
+// console.log(quizzesObj);
 let questionCount = 0;
 let currentScore = 0;
 let userChoiceLabel;
