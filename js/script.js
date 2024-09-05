@@ -15,7 +15,7 @@ console.log(quizzesObj);
 let questionCount = 0;
 let userChoiceLabel;
 const subjects = {
-  js: "Javascript",
+  js: "JavaScript",
   html: "HTML",
   css: "CSS",
   accessibility: "Accessibility",
@@ -94,6 +94,8 @@ function nextPage(e) {
   // console.log(e.target);
   e.preventDefault();
   const subject = quizzesObj[subjectHeader.dataset.subject];
+
+  // console.log(subjectHeader.dataset.subject);
   const clone = questionTemplate.content.cloneNode(true);
   const choiceForm = clone.getElementById("choice-form");
   choiceForm.addEventListener("click", checkAnswer, true);
@@ -107,9 +109,12 @@ function nextPage(e) {
   const questionMax = clone.getElementById("question-max");
   questionMax.textContent = `${subject.questions.length}`;
 
+  const progress = clone.getElementById("progressbar");
+  progress.setAttribute("value", questionCount);
+
   const options = clone.querySelectorAll("label[data-choice]");
 
-  console.log(subject.questions);
+  // console.log(subject.questions);
   for (
     let index = 0;
     index < subject.questions[questionCount].options.length;
@@ -139,6 +144,7 @@ choices.addEventListener(
       headerText.textContent = subjects[val];
       subjectHeader.dataset.subject = subjects[val];
 
+      // console.log(subjectHeader.dataset.subject);
       nextPage(e);
       // Question Template
       // const clone = questionTemplate.content.cloneNode(true);
