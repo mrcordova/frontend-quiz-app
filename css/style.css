@@ -63,12 +63,14 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+
+  padding-inline: clamp(1.5rem, -0.8855rem + 10.1781vw, 4rem);
   /* Mobile */
-  padding-inline: 1.5rem;
+  /* padding-inline: 1.5rem; */
   /* Tablet */
-  padding-inline: 4rem;
+  /* padding-inline: 4rem; */
   /* Desktop */
-  padding-inline: 8.75rem;
+  /* padding-inline: 8.75rem; */
 }
 
 .light-mode > body {
@@ -523,6 +525,13 @@ progress {
   body {
     background: url(../assets/images/pattern-background-tablet-dark.svg)
       no-repeat var(--body-bg);
+
+    padding-inline: clamp(4rem, -1.4286rem + 11.3095vw, 8.75rem);
+
+    /* Tablet */
+    /* padding-inline: 4rem; */
+    /* Desktop */
+    /* padding-inline: 8.75rem; */
   }
   .header-container {
     width: 46ch;
