@@ -468,19 +468,24 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Mobile */
+
   gap: 0.5rem;
   font-size: 1.125rem;
   line-height: 1;
+  /* Mobile */
+  /* gap: 0.5rem; */
+  /* font-size: 1.125rem; */
+  /* line-height: 1; */
   /* Desktop */
-  gap: 0.5rem;
-  font-size: 1.5rem;
-  line-height: 1.5;
+  /* gap: 0.5rem; */
+  /* font-size: 1.5rem; */
+  /* line-height: 1.5; */
   & > img {
+    width: clamp(2rem, 1.5229rem + 2.0356vw, 2.5rem);
     /* Mobile */
-    width: 2rem;
+    /* width: 2rem; */
     /* Desktop */
-    width: 2.5rem;
+    /* width: 2.5rem; */
   }
 
   &.hide {
@@ -491,18 +496,21 @@ label {
 progress {
   -webkit-appearance: none;
 
+  width: 100%;
+  height: 1rem;
+  margin-block-end: clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem);
   /* Mobile */
-  width: 100%;
-  height: 1rem;
-  margin-block-end: 2.5rem;
+  /* width: 100%; */
+  /* height: 1rem; */
+  /* margin-block-end: 2.5rem; */
   /* Tablet */
-  width: 100%;
-  height: 1rem;
-  margin-block-end: 4rem;
+  /* width: 100%; */
+  /* height: 1rem; */
+  /* margin-block-end: 4rem; */
   /* Desktop */
-  width: 100%;
-  height: 1rem;
-  margin-block-end: 0rem;
+  /* width: 100%; */
+  /* height: 1rem; */
+  /* margin-block-end: 0rem; */
 }
 ::-webkit-progress-bar {
   background-color: var(--option-bg);
@@ -623,6 +631,31 @@ progress {
     background: url(../assets/images/pattern-background-tablet-light.svg)
       no-repeat var(--body-bg);
   }
+
+  progress {
+    margin-block-end: clamp(0rem, 8.5714rem + -9.5238vw, 4rem);
+    /* Tablet */
+    /* width: 100%; */
+    /* height: 1rem; */
+    /* margin-block-end: 4rem; */
+    /* Desktop */
+    /* width: 100%; */
+    /* height: 1rem; */
+    /* margin-block-end: 0rem; */
+  }
+  #no-answer {
+    gap: 0.5rem;
+    font-size: clamp(1.125rem, 0.6964rem + 0.8929vw, 1.5rem);
+    line-height: 1;
+    /* tablet */
+    /* gap: 0.5rem; */
+    /* font-size: 1.125rem; */
+    /* line-height: 1; */
+    /* Desktop */
+    /* gap: 0.5rem; */
+    /* font-size: 1.5rem; */
+    /* line-height: 1.5; */
+  }
 }
 
 @media (min-width: 90rem) {
@@ -671,5 +704,9 @@ progress {
   #quiz-complete-container {
     /* align-self: center; */
     /* width: 35.25rem; */
+  }
+
+  #no-answer {
+    line-height: 1.5;
   }
 }
