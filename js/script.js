@@ -13,7 +13,6 @@ const quizzesObj = {};
 for (const quiz of quizzes) {
   quizzesObj[quiz["title"]] = quiz;
 }
-// console.log(quizzesObj);
 let questionCount = 0;
 let currentScore = 0;
 let userChoiceLabel;
@@ -26,20 +25,15 @@ const subjects = {
 };
 
 function keyboardClick(e) {
-  // e.preventDefault();
   if (e.key == " " && e.target.tagName == "LABEL") {
     const input = e.target.querySelector("input");
     input.checked = !input.checked;
     e.target.click();
   } else if (e.key == " " && e.target.tagName == "BUTTON") {
-    // e.target.click();
-    // checkAnswer(e);
   }
 }
 
 function checkAnswer(e) {
-  //   e.preventDefault();
-  //   console.log(e.target.tagName);
   const choiceLabel = e.target.closest("label");
   const eleTagName = e.target.tagName;
   if (choiceLabel) {
@@ -48,7 +42,6 @@ function checkAnswer(e) {
     userChoiceLabel = choiceLabel;
   } else if (eleTagName === "BUTTON" && userChoiceLabel == undefined) {
     e.preventDefault();
-    // console.log("no choice");
     document.getElementById("no-answer").classList.toggle("hide", false);
   } else if (eleTagName === "BUTTON") {
     e.preventDefault();
@@ -58,7 +51,6 @@ function checkAnswer(e) {
     const answerLabel = document.querySelector(
       `label[data-choice="${answer}"]`
     );
-    // console.log(userChoiceLabel);
     const userChoice = userChoiceLabel.dataset.choice;
     if (answer === userChoice) {
       userChoiceLabel.insertAdjacentHTML(
@@ -183,7 +175,6 @@ function quizComplete(e) {
 
   const playAgainBtn = clone.getElementById("play-again-btn");
   playAgainBtn.addEventListener("click", playAgain);
-  // playAgainBtn.focus();
   contentArea.replaceChildren(clone);
 }
 
@@ -200,7 +191,6 @@ function playAgain(e) {
 window.addEventListener("load", () => {
   let idx = 0;
   for (const quizObj of Object.values(quizzesObj)) {
-    // console.log(quizObj);
     choices.children[idx].querySelector(
       "span"
     ).textContent = `${quizObj.title}`;
@@ -220,9 +210,7 @@ toggle.addEventListener("click", (e) => {
 });
 
 toggle.addEventListener("keyup", (e) => {
-  // e.preventDefault();
   if (e.key == " ") {
-    // console.log(toggle.closest("input"));
     toggleInput.checked = !toggleInput.checked;
     toggleInput.click();
   }
