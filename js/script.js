@@ -4,7 +4,7 @@ const questionTemplate = document.getElementById("question-template");
 const quizCompleteTemplate = document.getElementById("quiz-complete");
 const contentArea = document.getElementById("content-area");
 const toggle = document.querySelector("label[for='toggle']");
-
+const toggleInput = toggle.querySelector("#toggle");
 // console.log(toggle);
 const dataResponse = await fetch("data.json");
 const data = await dataResponse.json();
@@ -24,6 +24,15 @@ const subjects = {
   css: "CSS",
   accessibility: "Accessibility",
 };
+
+function keyboardClick(e) {
+  e.preventDefault();
+  if (e.key == " " && e.target.tagName == "LABEL") {
+    const input = e.target.querySelector("input");
+    input.checked = !input.checked;
+    e.target.click();
+  }
+}
 
 function checkAnswer(e) {
   //   e.preventDefault();
@@ -62,7 +71,9 @@ function checkAnswer(e) {
       e.target.textContent = "Next Question";
       e.target.disabled = false;
       e.target.style = "";
+      // e.target.focus();
       e.target.parentElement.removeEventListener("click", checkAnswer, true);
+      // e.target.parentElement.removeEventListener("keyup", keyboardClick, true);
 
       e.target.addEventListener("mouseup", nextPage);
       currentScore++;
@@ -86,6 +97,7 @@ function checkAnswer(e) {
       e.target.style = "";
 
       e.target.parentElement.removeEventListener("click", checkAnswer, true);
+      // e.target.parentElement.removeEventListener("keyup", keyboardClick, true);
 
       e.target.addEventListener("mouseup", nextPage);
       // Might not neeeded since we should move to the next page
@@ -105,6 +117,7 @@ function nextPage(e) {
     const clone = questionTemplate.content.cloneNode(true);
     const choiceForm = clone.getElementById("choice-form");
     choiceForm.addEventListener("click", checkAnswer, true);
+    // choiceForm.addEventListener("keyup", keyboardClick, true);
     userChoiceLabel = undefined;
 
     const question = clone.getElementById("question");
@@ -191,6 +204,15 @@ toggle.addEventListener("click", (e) => {
   document.documentElement.classList.toggle("light-mode");
 });
 
+toggle.addEventListener("keyup", (e) => {
+  // e.preventDefault();
+  if (e.key == " ") {
+    // console.log(toggle.closest("input"));
+    toggleInput.checked = !toggleInput.checked;
+    toggleInput.click();
+  }
+});
+
 choices.addEventListener(
   "click",
   (e) => {
@@ -201,37 +223,20 @@ choices.addEventListener(
     if (val != undefined) {
       const img = subjectHeader.children[0];
       subjectHeader.replaceChild(label.children[1].cloneNode(true), img);
-      // img.setAttribute("src", `assets/images/icon-${val}.svg`);
-      // img.setAttribute("alt", val);
-      // img.classList.toggle("hide", false);
 
       const headerText = subjectHeader.children[1];
       headerText.textContent = subjects[val];
       subjectHeader.dataset.subject = subjects[val];
 
       firstPage = [...contentArea.children];
-      // console.log(subjectHeader.dataset.subject);
       nextPage(e);
-
-      // console.log(firstPage);
-      // Question Template
-      // const clone = questionTemplate.content.cloneNode(true);
-      // const choiceForm = clone.getElementById("choice-form");
-      // choiceForm.addEventListener("click", checkAnswer, true);
-
-      // const questionNum = clone.getElementById("question-num");
-      // questionNum.textContent = `${questionCount}`;
-      // const question = clone.getElementById("question");
-      // question.textContent =
-      //   quizzesObj[subjectHeader.dataset.subject].questions[
-      //     questionCount
-      //   ].question;
-      // const questionMax = clone.getElementById("question-max");
-      // questionMax.textContent = `${
-      //   quizzesObj[subjectHeader.dataset.subject].questions.length
-      // }`;
-      // contentArea.replaceChildren(clone);
     }
   },
   true
 );
+
+choices.addEventListener("keyup", (e) => {
+  if (e.key == " ") {
+    e.target.click();
+  }
+});
