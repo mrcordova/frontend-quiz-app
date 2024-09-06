@@ -74,7 +74,7 @@ function checkAnswer(e) {
       e.target.textContent = "Next Question";
       e.target.disabled = false;
       e.target.style = "";
-      // e.target.focus();
+      e.target.focus();
       e.target.parentElement.removeEventListener("click", checkAnswer, true);
       e.target.parentElement.removeEventListener("keyup", keyboardClick, true);
 
@@ -82,8 +82,6 @@ function checkAnswer(e) {
       e.target.addEventListener("keyup", (ev) => {
         if (ev.key == " ") {
           nextPage(ev);
-          // e.target.focus();
-          // window.setTimeout(() => e.target.focus(), 0);
         }
       });
 
@@ -106,7 +104,7 @@ function checkAnswer(e) {
       e.target.textContent = "Next Question";
       e.target.disabled = false;
       e.target.style = "";
-
+      e.target.focus();
       e.target.parentElement.removeEventListener("click", checkAnswer, true);
       e.target.parentElement.removeEventListener("keyup", keyboardClick, true);
 
@@ -114,8 +112,6 @@ function checkAnswer(e) {
       e.target.addEventListener("keyup", (ev) => {
         if (ev.key == " ") {
           nextPage(ev);
-          // ev.focus();
-          // window.setTimeout(() => e.target.focus(), 0);
         }
       });
       // Might not neeeded since we should move to the next page
@@ -187,6 +183,7 @@ function quizComplete(e) {
 
   const playAgainBtn = clone.getElementById("play-again-btn");
   playAgainBtn.addEventListener("click", playAgain);
+  // playAgainBtn.focus();
   contentArea.replaceChildren(clone);
 }
 
