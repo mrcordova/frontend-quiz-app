@@ -111,18 +111,29 @@ main {
   padding-block: 2rem;
   gap: 1rem;
   margin-block-end: 0.75rem;
+  /* Tablet*/
+  padding-block: 3rem;
+  gap: 1rem;
+  margin-block-end: 2rem;
 
   & > span {
     color: var(--option-text);
     /* Mobile */
     font-size: 5.5rem;
     line-height: 1;
+    /* Tablet*/
+    font-size: 9rem;
+    line-height: 1;
+    margin-block-start: 2.5rem;
   }
 
   & > h2 {
     color: var(--sub-heading);
     /* Mobile */
     font-size: 1.125rem;
+    line-height: 1;
+    /* Tablet */
+    font-size: 1.5rem;
     line-height: 1;
   }
 }
@@ -259,7 +270,9 @@ label {
 #choice-form {
   display: flex;
   flex-direction: column;
+  /* flex-wrap: wrap; */
   color: var(--option-text);
+  min-width: fit-content;
   /* Mobile */
   font-size: 1.125rem;
   gap: 0.75rem;
@@ -272,7 +285,6 @@ label {
   & label {
     background-color: var(--option-bg);
 
-    /* min-width: max-content; */
     min-width: 0;
     display: flex;
     align-items: center;
@@ -499,6 +511,9 @@ progress {
   body {
     background: url(../assets/images/pattern-background-tablet-dark.svg)
       no-repeat var(--body-bg);
+  }
+  .header-container {
+    width: 46ch;
   }
 
   .light-mode > body {
