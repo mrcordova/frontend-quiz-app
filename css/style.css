@@ -67,6 +67,8 @@ body {
   padding-inline: 1.5rem;
   /* Tablet */
   padding-inline: 4rem;
+  /* Desktop */
+  padding-inline: 8.75rem;
 }
 
 .light-mode > body {
@@ -84,6 +86,8 @@ header {
     padding-block: 1.625rem;
     /* Tablet */
     padding-block: 3.375rem 1.9375rem;
+    /* Desktop */
+    padding-block: 6.0625rem 4.1875rem;
   }
 
   &:has(img:not(.hide)) {
@@ -91,6 +95,8 @@ header {
     padding-block: 1rem 1rem;
     /* TAblet */
     padding-block: 2.5rem 1.0625rem;
+    /* Desktop */
+    padding-block: 5.1875rem 3.3125rem;
   }
 }
 
@@ -146,6 +152,9 @@ main {
   padding-block-end: 2.5rem;
   /* Tablet */
   gap: 1rem;
+  padding-block-end: 4rem;
+  /* Tablet */
+  gap: 3rem;
   padding-block-end: 4rem;
 
   & h1 {
@@ -270,7 +279,6 @@ label {
 #choice-form {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   color: var(--option-text);
   min-width: fit-content;
   /* Mobile */
@@ -299,12 +307,6 @@ label {
     & input[type="radio"] {
       display: none;
     }
-
-    /* & > span {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    } */
 
     & img {
       border-radius: 0.375rem;
@@ -416,9 +418,15 @@ label {
   gap: 0.5rem;
   font-size: 1.125rem;
   line-height: 1;
+  /* Desktop */
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
   & > img {
     /* Mobile */
     width: 2rem;
+    /* Desktop */
+    width: 2.5rem;
   }
 
   &.hide {
@@ -437,6 +445,10 @@ progress {
   width: 100%;
   height: 1rem;
   margin-block-end: 4rem;
+  /* Desktop */
+  width: 100%;
+  height: 1rem;
+  margin-block-end: 0rem;
 }
 ::-webkit-progress-bar {
   background-color: var(--option-bg);
@@ -519,5 +531,54 @@ progress {
   .light-mode > body {
     background: url(../assets/images/pattern-background-tablet-light.svg)
       no-repeat var(--body-bg);
+  }
+}
+
+@media (min-width: 90rem) {
+  body {
+    background: url(../assets/images/pattern-background-desktop-dark.svg)
+      no-repeat var(--body-bg);
+    background-size: cover;
+  }
+  .light-mode > body {
+    background: url(../assets/images/pattern-background-desktop-light.svg)
+      no-repeat var(--body-bg);
+  }
+  #content-area {
+    display: grid;
+    gap: 0 8.1875rem;
+    grid-template-columns: max-content;
+    grid-template-areas:
+      "header choices"
+      "bar  choices";
+  }
+
+  .header-container {
+    grid-area: header;
+  }
+
+  #subjects-form {
+    grid-area: choices;
+  }
+
+  .question-header {
+    grid-area: header;
+    width: 47ch;
+  }
+  #progressbar {
+    grid-area: bar;
+  }
+
+  #choice-form {
+    grid-area: choices;
+  }
+
+  #final-score-container {
+    grid-area: choices;
+  }
+
+  #quiz-complete-container {
+    /* align-self: center; */
+    /* width: 35.25rem; */
   }
 }
