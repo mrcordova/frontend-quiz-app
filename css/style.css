@@ -65,6 +65,8 @@ body {
   flex-direction: column;
   /* Mobile */
   padding-inline: 1.5rem;
+  /* Tablet */
+  padding-inline: 4rem;
 }
 
 .light-mode > body {
@@ -80,6 +82,8 @@ header {
   &:has(img.hide) {
     /* Mobile */
     padding-block: 1.625rem;
+    /* Tablet */
+    padding-block: 3.375rem 1.9375rem;
   }
 
   &:has(img:not(.hide)) {
@@ -124,14 +128,20 @@ main {
 .header-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   /* Mobile */
+  gap: 1rem;
   padding-block-end: 2.5rem;
+  /* Tablet */
+  gap: 1rem;
+  padding-block-end: 4rem;
 
   & h1 {
     color: var(--option-text);
     /* Mobile */
     font-size: 2.5rem;
+    line-height: 1;
+    /* Tablet */
+    font-size: 4rem;
     line-height: 1;
   }
 
@@ -139,6 +149,9 @@ main {
     color: var(--sub-heading);
     /* Mobile */
     font-size: 0.875rem;
+    line-height: 1.5;
+    /* Tablet */
+    font-size: 1.25rem;
     line-height: 1.5;
   }
 }
@@ -177,6 +190,9 @@ label {
     /* Mobile */
     width: 1rem;
     height: 1rem;
+    /* Tablet */
+    width: 1.5rem;
+    height: 1.5rem;
     & > path {
       fill: var(--icon);
     }
@@ -196,6 +212,9 @@ label {
   /* Mobile */
   width: 2rem;
   height: 1.25rem;
+  /* Tablet */
+  width: 3rem;
+  height: 1.75rem;
 }
 
 .slider::before {
@@ -210,6 +229,11 @@ label {
   width: 0.75rem;
   right: 0.25rem;
   top: 0.25rem;
+  /* Mobile */
+  height: 1.25rem;
+  width: 1.25rem;
+  right: 0.25rem;
+  top: 0.25rem;
 }
 
 #toggle + .slider:hover {
@@ -219,6 +243,8 @@ label {
 #toggle:checked + .slider::before {
   /* Mobile */
   transform: translateX(-0.75rem);
+  /* Tablet */
+  transform: translateX(-1.25rem);
 }
 
 /* Toggle Switch end  */
@@ -232,6 +258,10 @@ label {
   font-size: 1.125rem;
   gap: 0.75rem;
   line-height: 1;
+  /* TAblet */
+  font-size: 1.75rem;
+  gap: 1.5rem;
+  line-height: 1;
 
   & label {
     background-color: var(--option-bg);
@@ -242,6 +272,8 @@ label {
     border: 1px solid transparent;
     /* Mobile */
     gap: 1rem;
+    /* Tablet */
+    gap: 2rem;
 
     & input[type="radio"] {
       display: none;
@@ -254,6 +286,11 @@ label {
       margin-inline: 0.75rem;
       width: 2.5rem;
       padding: 0.356875rem;
+      /* Tablet */
+      margin-block: 0.75rem;
+      margin-inline: 0.75rem;
+      width: 3.5rem;
+      padding: 0.5rem;
     }
 
     &:is(:active, :hover) {
