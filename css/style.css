@@ -163,34 +163,42 @@ main {
 .header-container {
   display: flex;
   flex-direction: column;
+
+  gap: 1rem;
+  padding-block-end: clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem);
+
   /* Mobile */
-  gap: 1rem;
-  padding-block-end: 2.5rem;
+  /* gap: 1rem; */
+  /* padding-block-end: 2.5rem; */
   /* Tablet */
-  gap: 1rem;
-  padding-block-end: 4rem;
+  /* gap: 1rem; */
+  /* padding-block-end: 4rem; */
   /* Tablet */
-  gap: 3rem;
-  padding-block-end: 4rem;
+  /* gap: 3rem; */
+  /* padding-block-end: 4rem; */
 
   & h1 {
     color: var(--option-text);
+    font-size: clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem);
+    line-height: 1;
     /* Mobile */
-    font-size: 2.5rem;
-    line-height: 1;
+    /* font-size: 2.5rem; */
+    /* line-height: 1; */
     /* Tablet */
-    font-size: 4rem;
-    line-height: 1;
+    /* font-size: 4rem; */
+    /* line-height: 1; */
   }
 
   & h2 {
     color: var(--sub-heading);
+    font-size: clamp(0.875rem, 0.5172rem + 1.5267vw, 1.25rem);
+    line-height: 1.5;
     /* Mobile */
-    font-size: 0.875rem;
-    line-height: 1.5;
+    /* font-size: 0.875rem; */
+    /* line-height: 1.5; */
     /* Tablet */
-    font-size: 1.25rem;
-    line-height: 1.5;
+    /* font-size: 1.25rem; */
+    /* line-height: 1.5; */
   }
 }
 .subject-heading-container {
@@ -570,6 +578,15 @@ progress {
   }
   .header-container {
     width: 46ch;
+
+    gap: clamp(1rem, -1.2857rem + 4.7619vw, 3rem);
+    padding-block-end: 4rem;
+    /* Tablet */
+    /* gap: 1rem; */
+    /* padding-block-end: 4rem; */
+    /* Tablet */
+    /* gap: 3rem; */
+    /* padding-block-end: 4rem; */
   }
 
   .light-mode > body {
