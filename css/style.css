@@ -415,3 +415,15 @@ progress {
   display: flex;
   flex-direction: column;
 }
+
+@media (min-width: 48rem) {
+  body {
+    background: url(../assets/images/pattern-background-tablet-dark.svg)
+      no-repeat var(--body-bg);
+  }
+
+  .light-mode > body {
+    background: url(../assets/images/pattern-background-tablet-light.svg)
+      no-repeat var(--body-bg);
+  }
+}
