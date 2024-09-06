@@ -242,12 +242,14 @@ label {
   gap: 0.5rem;
 
   & > svg {
+    width: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
+    height: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
     /* Mobile */
-    width: 1rem;
-    height: 1rem;
+    /* width: 1rem; */
+    /* height: 1rem; */
     /* Tablet */
-    width: 1.5rem;
-    height: 1.5rem;
+    /* width: 1.5rem; */
+    /* height: 1.5rem; */
     & > path {
       fill: var(--icon);
     }
@@ -263,13 +265,15 @@ label {
   display: inline-block;
   background: var(--purple);
   border-radius: 62rem;
+  width: clamp(2rem, 1.0458rem + 4.0712vw, 3rem);
+  height: clamp(1.25rem, 0.7729rem + 2.0356vw, 1.75rem);
 
   /* Mobile */
-  width: 2rem;
-  height: 1.25rem;
+  /* width: 2rem; */
+  /* height: 1.25rem; */
   /* Tablet */
-  width: 3rem;
-  height: 1.75rem;
+  /* width: 3rem; */
+  /* height: 1.75rem; */
 }
 
 .slider::before {
@@ -279,16 +283,20 @@ label {
   transition: 0.4s;
   border-radius: 50%;
 
-  /* Mobile */
-  height: 0.75rem;
-  width: 0.75rem;
+  height: clamp(0.75rem, 0.2729rem + 2.0356vw, 1.25rem);
+  width: clamp(0.75rem, 0.2729rem + 2.0356vw, 1.25rem);
   right: 0.25rem;
   top: 0.25rem;
   /* Mobile */
-  height: 1.25rem;
-  width: 1.25rem;
-  right: 0.25rem;
-  top: 0.25rem;
+  /* height: 0.75rem; */
+  /* width: 0.75rem; */
+  /* right: 0.25rem; */
+  /* top: 0.25rem; */
+  /* Mobile */
+  /* height: 1.25rem; */
+  /* width: 1.25rem; */
+  /* right: 0.25rem; */
+  /* top: 0.25rem; */
 }
 
 #toggle + .slider:hover {
@@ -296,10 +304,11 @@ label {
 }
 
 #toggle:checked + .slider::before {
+  transform: translateX(clamp(-1.25rem, -0.2729rem + -2.0356vw, -0.75rem));
   /* Mobile */
-  transform: translateX(-0.75rem);
+  /* transform: translateX(-0.75rem); */
   /* Tablet */
-  transform: translateX(-1.25rem);
+  /* transform: translateX(-1.25rem); */
 }
 
 /* Toggle Switch end  */
