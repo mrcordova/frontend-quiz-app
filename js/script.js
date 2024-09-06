@@ -26,11 +26,14 @@ const subjects = {
 };
 
 function keyboardClick(e) {
-  e.preventDefault();
+  // e.preventDefault();
   if (e.key == " " && e.target.tagName == "LABEL") {
     const input = e.target.querySelector("input");
     input.checked = !input.checked;
     e.target.click();
+  } else if (e.key == " " && e.target.tagName == "BUTTON") {
+    // e.target.click();
+    // checkAnswer(e);
   }
 }
 
@@ -73,9 +76,17 @@ function checkAnswer(e) {
       e.target.style = "";
       // e.target.focus();
       e.target.parentElement.removeEventListener("click", checkAnswer, true);
-      // e.target.parentElement.removeEventListener("keyup", keyboardClick, true);
+      e.target.parentElement.removeEventListener("keyup", keyboardClick, true);
 
       e.target.addEventListener("mouseup", nextPage);
+      e.target.addEventListener("keyup", (ev) => {
+        if (ev.key == " ") {
+          nextPage(ev);
+          // e.target.focus();
+          // window.setTimeout(() => e.target.focus(), 0);
+        }
+      });
+
       currentScore++;
     } else if (answer !== userChoice) {
       userChoiceLabel.insertAdjacentHTML(
@@ -97,9 +108,16 @@ function checkAnswer(e) {
       e.target.style = "";
 
       e.target.parentElement.removeEventListener("click", checkAnswer, true);
-      // e.target.parentElement.removeEventListener("keyup", keyboardClick, true);
+      e.target.parentElement.removeEventListener("keyup", keyboardClick, true);
 
       e.target.addEventListener("mouseup", nextPage);
+      e.target.addEventListener("keyup", (ev) => {
+        if (ev.key == " ") {
+          nextPage(ev);
+          // ev.focus();
+          // window.setTimeout(() => e.target.focus(), 0);
+        }
+      });
       // Might not neeeded since we should move to the next page
       if (!e.target.nextElementSibling.classList.contains("hide")) {
         e.target.nextElementSibling.classList.toggle("hide", true);
@@ -117,7 +135,7 @@ function nextPage(e) {
     const clone = questionTemplate.content.cloneNode(true);
     const choiceForm = clone.getElementById("choice-form");
     choiceForm.addEventListener("click", checkAnswer, true);
-    // choiceForm.addEventListener("keyup", keyboardClick, true);
+    choiceForm.addEventListener("keyup", keyboardClick, true);
     userChoiceLabel = undefined;
 
     const question = clone.getElementById("question");
