@@ -59,7 +59,7 @@ html {
 body {
   background: url(../assets/images/pattern-background-mobile-dark.svg) no-repeat
     var(--body-bg);
-  background-size: cover;
+  background-size: contain;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -235,6 +235,7 @@ label {
 
   & label {
     background-color: var(--option-bg);
+    min-width: max-content;
     display: flex;
     align-items: center;
     border-radius: 0.75rem;
