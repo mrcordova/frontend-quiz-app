@@ -295,9 +295,15 @@ label {
   & label {
     border: 0.1875rem solid transparent;
 
-    &:is(:active, :hover) {
-      border: 0.1875rem solid var(--purple);
+    &:is(:active, :hover) > span:first-of-type {
+      /* border: 0.1875rem solid var(--purple); */
+      color: var(--purple);
+      background-color: #f6e7ff;
     }
+    &:is(:active, :hover) {
+      border: 0.1875rem solid transparent;
+    }
+
     .correct-img.correct-img {
       margin-inline-start: auto;
       background-color: transparent;

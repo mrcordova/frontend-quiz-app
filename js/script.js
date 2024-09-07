@@ -5,18 +5,18 @@ const quizCompleteTemplate = document.getElementById("quiz-complete");
 const contentArea = document.getElementById("content-area");
 const toggle = document.querySelector("label[for='toggle']");
 const toggleInput = toggle.querySelector("#toggle");
-// console.log(toggle);
 const dataResponse = await fetch("data.json");
 const data = await dataResponse.json();
 const quizzes = data["quizzes"];
 const quizzesObj = {};
-for (const quiz of quizzes) {
-  quizzesObj[quiz["title"]] = quiz;
-}
 let questionCount = 0;
 let currentScore = 0;
 let userChoiceLabel;
 let firstPage;
+
+for (const quiz of quizzes) {
+  quizzesObj[quiz["title"]] = quiz;
+}
 const subjects = {
   js: "JavaScript",
   html: "HTML",
@@ -106,7 +106,6 @@ function checkAnswer(e) {
           nextPage(ev);
         }
       });
-      // Might not neeeded since we should move to the next page
       if (!e.target.nextElementSibling.classList.contains("hide")) {
         e.target.nextElementSibling.classList.toggle("hide", true);
       }
@@ -202,10 +201,8 @@ window.addEventListener("load", () => {
 });
 toggle.addEventListener("click", (e) => {
   e.preventDefault();
-  // console.log(e.currentTarget.querySelector("input"));
   const input = e.currentTarget.querySelector("input");
   input.checked = !input.checked;
-  // console.log(document.documentElement.classList.contains("light-mode"));
   document.documentElement.classList.toggle("light-mode");
 });
 
