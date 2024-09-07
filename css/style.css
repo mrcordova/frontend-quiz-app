@@ -567,15 +567,18 @@ progress {
   background-color: var(--purple);
   border-radius: 0.75rem;
   text-align: center;
+  font-size: clamp(1.125rem, 0.5286rem + 2.5445vw, 1.75rem);
+  line-height: 1;
+  padding-block: clamp(1.1875rem, 0.4122rem + 3.3079vw, 2rem);
 
   /* Mobile */
-  font-size: 1.125rem;
-  line-height: 1;
-  padding-block: 1.1875rem;
+  /* font-size: 1.125rem; */
+  /* line-height: 1; */
+  /* padding-block: 1.1875rem; */
   /* Tablet */
-  font-size: 1.75rem;
-  line-height: 1;
-  padding-block: 2rem;
+  /* font-size: 1.75rem; */
+  /* line-height: 1; */
+  /* padding-block: 2rem; */
 
   &:hover {
     cursor: pointer;
@@ -706,11 +709,6 @@ progress {
 
   #final-score-container {
     grid-area: choices;
-  }
-
-  #quiz-complete-container {
-    /* align-self: center; */
-    /* width: 35.25rem; */
   }
 
   #no-answer {
