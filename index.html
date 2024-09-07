@@ -18,11 +18,10 @@
   <body class="rubik-regular">
     <header>
       <div data-subject="" class="subject-heading-container rubik-medium">
-        <img class="hide" src="" alt="" />
+        <img class="hide" src="/assets/images/favicon-32x32.png" alt="logo" />
         <p></p>
       </div>
 
-     
       <label tabindex="0" for="toggle">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -61,78 +60,89 @@
         <!-- Quiz menu start -->
 
         <form id="subjects-form" class="rubik-medium">
-          <label tabindex="0"  data-value="html" for="html">
+          <label tabindex="0" data-value="html" for="html">
             <input type="radio" name="subjects" id="html" />
             <img id="html-img" src="./assets/images/icon-html.svg" alt="html" />
-            <span>HTML<span>
+            <span>HTML</span>
           </label>
           <label tabindex="0" data-value="css" for="css">
             <input type="radio" name="subjects" id="css" />
             <img id="css-img" src="./assets/images/icon-css.svg" alt="css" />
-            <span>CSS<span>
+            <span>CSS</span>
           </label>
           <label tabindex="0" data-value="js" for="js">
             <input type="radio" name="subjects" id="js" />
-            <img id="js-img" src="./assets/images/icon-js.svg" alt="JavaScript" />
-            <span>JavaScript<span>
+            <img
+              id="js-img"
+              src="./assets/images/icon-js.svg"
+              alt="JavaScript" />
+            <span>JavaScript</span>
           </label>
           <label tabindex="0" data-value="accessibility" for="accessibility">
             <input type="radio" name="subjects" id="accessibility" />
             <img
-            id="access-img"
+              id="access-img"
               src="./assets/images/icon-accessibility.svg"
               alt="Accessibility" />
-            <span>Accessibility<span>
+            <span>Accessibility</span>
           </label>
         </form>
       </div>
       <!-- Quiz menu end -->
 
       <template id="question-template">
-          <!-- Quiz question start -->
-          <div class="question-header">
-            <h2 class="rubik-regular-italic">
-              Question
-              <!-- number -->
-              <span id="question-num"></span>
-              of <span id="question-max"></span> 
-            </h2>
-            <p id="question" class="rubik-medium">
-              Which of these color contrast ratios defines the minimum WCAG 2.1
-              Level AA requirement for normal text?
-            </p>
-          </div>
-          <progress id="progressbar" role="progressbar" value="5" max="10"></progress>
+        <!-- Quiz question start -->
+        <div class="question-header">
+          <h2 class="rubik-regular-italic">
+            Question
+            <!-- number -->
+            <span id="question-num"></span>
+            of
+            <span id="question-max"></span>
+          </h2>
+          <p id="question" class="rubik-medium">
+            Which of these color contrast ratios defines the minimum WCAG 2.1
+            Level AA requirement for normal text?
+          </p>
+        </div>
+        <progress
+          id="progressbar"
+          role="progressbar"
+          value="5"
+          max="10"></progress>
 
-          <form id="choice-form" class="rubik-medium">
-            <label tabindex="0" data-choice="4.5:1" for="a">
-              <input type="radio" name="choices" id="a" />
-              <span>A</span>
-              <span >4.5:1</span>
-            </label>
-            <label tabindex="0" data-choice="3:1" for="b">
-              <input type="radio" name="choices" id="b" />
-              <span>B</span>
-              <span >3:1</span>
-            </label>
-            <label tabindex="0" data-choice="2.5:1" for="c">
-              <input type="radio" name="choices" id="c" />
-              <span>C</span>
-              <span >2.5:1</span>
-            </label>
-            <label tabindex="0" data-choice="5:1" for="d">
-              <input type="radio" name="choices" id="d" />
-              <span>D</span>
-              <span >5:1</span>
-            </label>
-            <button  id="submit-btn" class="rubik-medium">Submit Answer</button>
+        <form id="choice-form" class="rubik-medium">
+          <label tabindex="0" data-choice="4.5:1" for="a">
+            <input type="radio" name="choices" id="a" />
+            <span>A</span>
+            <span>4.5:1</span>
+          </label>
+          <label tabindex="0" data-choice="3:1" for="b">
+            <input type="radio" name="choices" id="b" />
+            <span>B</span>
+            <span>3:1</span>
+          </label>
+          <label tabindex="0" data-choice="2.5:1" for="c">
+            <input type="radio" name="choices" id="c" />
+            <span>C</span>
+            <span>2.5:1</span>
+          </label>
+          <label tabindex="0" data-choice="5:1" for="d">
+            <input type="radio" name="choices" id="d" />
+            <span>D</span>
+            <span>5:1</span>
+          </label>
+          <button id="submit-btn" class="rubik-medium">Submit Answer</button>
 
-            <span id="no-answer" class="rubik-regular hide">
-              <img class="no-answer-img" src="./assets/images/icon-incorrect.svg" alt="x">
-              Please select an answer
-            </span>
-            <!-- A B C D Submit answer -->
-          </form>
+          <span id="no-answer" class="rubik-regular hide">
+            <img
+              class="no-answer-img"
+              src="./assets/images/icon-incorrect.svg"
+              alt="x" />
+            Please select an answer
+          </span>
+          <!-- A B C D Submit answer -->
+        </form>
 
         <!-- Quiz question end -->
       </template>
@@ -144,14 +154,13 @@
             <span class="rubik-medium">You scored...</span>
           </h1>
         </div>
-         <div id="quiz-complete-container">
+        <div id="quiz-complete-container">
           <div id="final-score-container">
-            
             <span id="final-score" class="rubik-medium">8</span>
             <!-- score -->
             <h2 id="max-final-score" class="rubik-regular">out of 10</h2>
           </div>
-          <button  id="play-again-btn" class="rubik-medium">Play Again</button>
+          <button id="play-again-btn" class="rubik-medium">Play Again</button>
           <!-- Quiz completed end -->
         </div>
       </template>
