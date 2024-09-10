@@ -81,8 +81,8 @@ header {
     padding-block: clamp(1rem, -0.4313rem + 6.1069vw, 2.5rem)
       clamp(1rem, 0.9404rem + 0.2545vw, 1.0625rem);
 
-    padding-block: 2.5rem 1.0625rem;
-    padding-block: 5.1875rem 3.3125rem;
+    /* padding-block: 2.5rem 1.0625rem;
+    padding-block: 5.1875rem 3.3125rem; */
   }
 }
 
@@ -265,6 +265,11 @@ label {
 }
 #choice-form {
   gap: clamp(0.5625rem, -0.3321rem + 3.8168vw, 1.5rem);
+  margin-block-end: clamp(3.5625rem, -3.2958rem + 29.2621vw, 10.75rem);
+
+  &:has(span#no-answer:not(.hide)) {
+    margin-block-end: clamp(3.5625rem, 8.2037rem + -9.6692vw, 5.9375rem);
+  }
 
   & > label > span:first-of-type {
     background-color: var(--choice-bg);
@@ -424,6 +429,10 @@ progress {
       padding-block: clamp(2.5rem, -0.5714rem + 6.3988vw, 5.1875rem)
         clamp(1.0625rem, -1.5089rem + 5.3571vw, 3.3125rem);
     }
+  }
+
+  #choice-form {
+    margin-block-end: clamp(3.5625rem, 0.4911rem + 6.3988vw, 6.25rem);
   }
   .header-container {
     width: 46ch;
