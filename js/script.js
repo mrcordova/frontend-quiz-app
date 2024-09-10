@@ -55,7 +55,7 @@ function checkAnswer(e) {
     if (answer === userChoice) {
       userChoiceLabel.insertAdjacentHTML(
         "beforeend",
-        `<img src='/assets/images/icon-correct.svg' alt='checkmark'/>`
+        `<img src='./assets/images/icon-correct.svg' alt='checkmark'/>`
       );
       userChoiceLabel.classList.add("correct");
 
@@ -81,11 +81,11 @@ function checkAnswer(e) {
     } else if (answer !== userChoice) {
       userChoiceLabel.insertAdjacentHTML(
         "beforeend",
-        `<img src='/assets/images/icon-incorrect.svg' alt='x'/>`
+        `<img src='./assets/images/icon-incorrect.svg' alt='x'/>`
       );
       answerLabel.insertAdjacentHTML(
         "beforeend",
-        `<img class="correct-img" src='/assets/images/icon-correct.svg' alt='checkmark'/>`
+        `<img class="correct-img" src='./assets/images/icon-correct.svg' alt='checkmark'/>`
       );
       userChoiceLabel.classList.add("incorrect");
 
